@@ -6,9 +6,11 @@ const mongoose = require('mongoose');
 const config = require('./config');
 const app = express();
 const router = express.Router();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 // schema
-const Item = require('./schemes/item');
+const Item = require('./schemas/item');
 
 // routes
 const root = require('./routes/root-route');
@@ -38,5 +40,6 @@ app.use(function (req, res, next) {
 
 app.use('/', root);
 app.use('/item', itemRoute);
+app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 module.exports = app;

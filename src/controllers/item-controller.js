@@ -17,15 +17,7 @@ exports.get = async(req, res, next) => {
 exports.post = async(req, res, next) => {
     try {
         
-        await repository.create({
-            title: req.body.title,
-            slug: req.body.slug,
-            description: req.body.description,
-            price: req.body.price,
-            active: true,
-            tags: req.body.tags,
-            image: req.body.image
-        });
+        await repository.create(req.body);
         res.status(201).send({
             message: 'Produto cadastrado com sucesso!'
         });
