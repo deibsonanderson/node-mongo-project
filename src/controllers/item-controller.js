@@ -3,9 +3,9 @@
 const repository = require('../dao/item-dao');
 var config = require('../config');
 
-exports.get = async(req, res, next) => {
+exports.find = async(req, res, next) => {
     try {
-        var data = await repository.get();
+        var data = await repository.find();
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -14,9 +14,8 @@ exports.get = async(req, res, next) => {
     }
 }
 
-exports.post = async(req, res, next) => {
+exports.create = async(req, res, next) => {
     try {
-        
         await repository.create(req.body);
         res.status(201).send({
             message: 'Produto cadastrado com sucesso!'
@@ -29,7 +28,7 @@ exports.post = async(req, res, next) => {
     }
 };
 
-exports.put = async(req, res, next) => {
+exports.update = async(req, res, next) => {
     try {
         await repository.update(req.params.id, req.body);
         res.status(200).send({
@@ -42,9 +41,9 @@ exports.put = async(req, res, next) => {
     }
 };
 
-exports.delete = async(req, res, next) => {
+exports.remove = async(req, res, next) => {
     try {
-        await repository.delete(req.body.id)
+        await repository.remove(req.body.id)
         res.status(200).send({
             message: 'Produto removido com sucesso!'
         });

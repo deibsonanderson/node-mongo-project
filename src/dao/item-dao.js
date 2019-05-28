@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Item = mongoose.model('Item');
 
-exports.get = async() => {
+exports.find = async() => {
     const res = await Item.find({
         active: true
     }, 'title price slug');
@@ -26,7 +26,7 @@ exports.update = async(id, data) => {
         });
 }
 
-exports.delete = async(id) => {
+exports.remove = async(id) => {
     await Item
         .findOneAndRemove(id);
 }
