@@ -1,14 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Api Documentation Collection Node",
+    "description": "Collection Node Api Documentation",
     "version": "1.0",
-    "title": "Api Documentation Collection Node",
+    "title": "Collection Node Api Documentation",
     "termsOfService": "urn:tos",
     "contact": {},
     "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+      "name": "Open Souce",
+      "url": "https://opensource.org/licenses"
     }
   },
   "host": "localhost:3000",
@@ -52,6 +52,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -80,14 +83,11 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/Item"
             }
-          },
-          "201": {
-            "description": "Created"
           },
           "401": {
             "description": "Unauthorized"
@@ -97,6 +97,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -142,6 +145,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -161,7 +167,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Item"
+              "$ref": "#/definitions/Amount"
             }
           },
           "401": {
@@ -172,6 +178,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -191,7 +200,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Item"
+              "$ref": "#/definitions/CountGames"
             }
           },
           "401": {
@@ -202,6 +211,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -221,8 +233,67 @@
           {
             "name": "title",
             "in": "query",
-            "description": "title",
-            "required": true,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "provenance",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publisher",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "producer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "haveGame",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "situation",
+            "in": "query",
+            "required": false,
             "type": "string"
           }
         ],
@@ -241,276 +312,9 @@
           },
           "404": {
             "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/adapter-rated": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findAdaptadorByAvaliado",
-        "operationId": "findAdaptadorByAvaliadoUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/completed": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findItemByCompletado",
-        "operationId": "findItemByCompletadoUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/expensive": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findItemByMaisCaro",
-        "operationId": "findItemByMaisCaroUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/item-rated": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findItemByAvaliado",
-        "operationId": "findItemByAvaliadoUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/new": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findItemByMaisRecente",
-        "operationId": "findItemByMaisRecenteUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/play": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findItemByMaisJogadas",
-        "operationId": "findItemByMaisJogadasUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/portable-rated": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findPortatilByAvaliado",
-        "operationId": "findPortatilByAvaliadoUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/time": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findItemByMaiorTempo",
-        "operationId": "findItemByMaiorTempoUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/item/more/video-game-rated": {
-      "get": {
-        "tags": [
-          "item-controller"
-        ],
-        "summary": "findVideoGameByAvaliado",
-        "operationId": "findVideoGameByAvaliadoUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Item"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -530,7 +334,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Item"
+              "$ref": "#/definitions/Progress"
             }
           },
           "401": {
@@ -541,6 +345,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -571,6 +378,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -610,6 +420,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -619,7 +432,7 @@
           "item-controller"
         ],
         "summary": "delete",
-        "operationId": "deleteUsingDELETE",
+        "operationId": "deleteUser",
         "produces": [
           "application/json"
         ],
@@ -633,9 +446,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "No Content"
           },
@@ -644,6 +454,309 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/adapter-rated": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findByAdapterRated",
+        "operationId": "findByAdapterRated",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/completed": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findItemByCompleted",
+        "operationId": "findItemByCompleted",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/expensive": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findItemByExpensive",
+        "operationId": "findItemByExpensive",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/item-rated": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findByItemRated",
+        "operationId": "findByItemRated",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/new": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findByNewItem",
+        "operationId": "findByNewItem",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/play": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findItemByMorePlays",
+        "operationId": "findItemByMorePlays",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/portable-rated": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findByPortableRated",
+        "operationId": "findByPortableRated",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/time": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findItemByMoreTime",
+        "operationId": "findItemByMoreTime",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/item/more/video-game-rated": {
+      "get": {
+        "tags": [
+          "item-controller"
+        ],
+        "summary": "findByVideoGameRated",
+        "operationId": "findByVideoGameRated",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemSimple"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -707,14 +820,11 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/LoginResponse"
             }
-          },
-          "201": {
-            "description": "Created"
           },
           "401": {
             "description": "Unauthorized"
@@ -724,6 +834,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -745,11 +858,11 @@
         "parameters": [
           {
             "in": "body",
-            "name": "User",
-            "description": "User",
+            "name": "Password",
+            "description": "Password",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Password"
             }
           }
         ],
@@ -765,6 +878,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -775,8 +891,8 @@
         "tags": [
           "user-controller"
         ],
-        "summary": "findUserById",
-        "operationId": "findUserById",
+        "summary": "findById",
+        "operationId": "findById",
         "produces": [
           "application/json"
         ],
@@ -804,6 +920,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -845,9 +964,6 @@
               "$ref": "#/definitions/User"
             }
           },
-          "201": {
-            "description": "Created"
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -856,6 +972,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -865,7 +984,7 @@
           "user-controller"
         ],
         "summary": "remove",
-        "operationId": "removeUsingDELETE",
+        "operationId": "remove",
         "produces": [
           "application/json"
         ],
@@ -879,9 +998,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "No Content"
           },
@@ -890,6 +1006,12 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "deprecated": false
@@ -897,159 +1019,276 @@
     }
   },
   "definitions": {
-    "Item": {
+    "CountGames": {
+      "title": "CountGames",
       "type": "object",
       "properties": {
+        "completed": {
+          "type": "number",
+          "example": 153
+        },
+        "pending": {
+          "type": "number",
+          "example": 86
+        },
+        "progress": {
+          "type": "number",
+          "example": 25
+        }
+      }
+    },
+    "Amount": {
+      "title": "Amount",
+      "type": "object",
+      "properties": {
+        "paid": {
+          "type": "number",
+          "example": 100.1
+        },
+        "actual": {
+          "type": "number",
+          "example": 120.1
+        }
+      }
+    },
+    "Item": {
+      "title": "Item",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
         "active": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "code": {
-          "type": "string"
+          "type": "string",
+          "example": "abc134"
         },
         "complement": {
-          "type": "string"
+          "type": "string",
+          "example": 0
         },
         "createDate": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-05-12T13:00:05-03:00"
         },
         "currentPrice": {
-          "type": "string"
+          "type": "number",
+          "example": 33.01
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "example": "information of item"
         },
         "evaluation": {
-          "type": "string"
+          "type": "number",
+          "example": 50
         },
         "flagBox": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagCdDvdGdBd": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagCrib": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagDiscCartridge": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagGlover": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagInvoice": {
-          "type": "string"
+          "type": "boolean",
+          "example": false
         },
         "flagManual": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagPaintpamphlet": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagPoster": {
-          "type": "string"
+          "type": "boolean",
+          "example": false
         },
         "flagProtetor": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "flagReplica": {
-          "type": "string"
+          "type": "boolean",
+          "example": false
         },
         "flagSealed": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "genre": {
-          "type": "string"
+          "type": "string",
+          "example": "FPS"
         },
         "haveGame": {
-          "type": "string"
+          "type": "boolean",
+          "example": true
         },
         "image": {
-          "type": "string"
+          "type": "string",
+          "example": "c0554d5ac008ec4e0c34821e878eecc2.jpg"
         },
         "localStorage": {
-          "type": "string"
+          "type": "string",
+          "example": "table"
         },
         "numberOfPlays": {
-          "type": "string"
+          "type": "number",
+          "example": 20
         },
         "platform": {
-          "type": "string"
+          "type": "string",
+          "example": "Nintendo"
         },
         "pricePaid": {
-          "type": "string"
+          "type": "number",
+          "example": 20.2
         },
         "producer": {
-          "type": "string"
+          "type": "string",
+          "example": "capcom"
         },
         "progression": {
-          "type": "string"
+          "type": "number",
+          "example": 100
         },
         "provenance": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Original",
+            "Pirate"
+          ],
+          "example": "Original"
         },
         "publisher": {
-          "type": "string"
+          "type": "string",
+          "example": "tayto"
         },
         "region": {
-          "type": "string"
+          "type": "string",
+          "example": "USA"
         },
         "screenshots": {
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "image_1.jpg",
+            "image_2.jpg"
+          ]
         },
         "situation": {
-          "type": "string"
+          "type": "string",
+          "example": "Buy"
         },
         "status": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "E",
+            "P",
+            "C"
+          ],
+          "example": "C"
         },
         "timeOfPlays": {
-          "type": "string"
+          "type": "number",
+          "example": 10
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "example": "title of item"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "example": "game"
         },
         "user": {
-          "type": "string"
+          "type": "number",
+          "example": 1
         }
       },
-      "title": "Item"
+      "required": [
+        "title",
+        "active",
+        "region",
+        "type",
+        "platform",
+        "user"
+      ]
     },
     "User": {
+      "title": "User",
       "type": "object",
       "properties": {
-        "data_nascimento": {
-          "type": "string",
-          "format": "date-time"
+        "id": {
+          "type": "number",
+          "example": "1"
         },
-        "descricao": {
-          "type": "string"
+        "name": {
+          "type": "string",
+          "example": "michael jackson"
+        },
+        "date_birth": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-05-12T13:00:05-03:00"
+        },
+        "description": {
+          "type": "string",
+          "example": "information of user"
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "example": "email@eamil.com"
         },
-        "foto": {
-          "type": "string"
+        "photo": {
+          "type": "string",
+          "example": "image.jpg"
         },
-        "id": {
-          "type": "string"
-        },
-        "nome": {
-          "type": "string"
-        },
-        "senha": {
-          "type": "string"
+        "password": {
+          "type": "string",
+          "example": "123456"
         },
         "site": {
-          "type": "string"
+          "type": "string",
+          "example": "http://www.site.com"
         },
-        "telefone": {
-          "type": "string"
+        "phone": {
+          "type": "string",
+          "example": "8197084623"
         }
       },
-      "title": "User"
+      "required": [
+        "name",
+        "date_birth",
+        "description",
+        "email",
+        "photo",
+        "password",
+        "site",
+        "phone"
+      ]
     },
     "LoginResponse": {
       "properties": {
@@ -1059,6 +1298,65 @@
         },
         "user": {
           "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "Password": {
+      "type": "object",
+      "properties": {
+        "old": {
+          "type": "string"
+        },
+        "new": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "old",
+        "new"
+      ]
+    },
+    "Progress": {
+      "title": "Progress",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "title": {
+          "type": "string",
+          "example": "title of simple item"
+        },
+        "image": {
+          "type": "string",
+          "example": "image.jpg"
+        },
+        "progress": {
+          "type": "number",
+          "example": 10
+        },
+        "status": {
+          "type": "string",
+          "example": "C"
+        }
+      }
+    },
+    "ItemSimple": {
+      "title": "ItemSimple",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "title": {
+          "type": "string",
+          "example": "title of simple item"
+        },
+        "image": {
+          "type": "string",
+          "example": "image.jpg"
         }
       }
     },
