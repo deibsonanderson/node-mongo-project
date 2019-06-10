@@ -11,7 +11,7 @@
       "url": "https://opensource.org/licenses"
     }
   },
-  "host": "localhost:3000",
+  "host": "https://node-mongo-project.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
