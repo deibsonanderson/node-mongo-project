@@ -11,26 +11,29 @@ const swaggerDocument = require('./swagger/swagger.json');
 
 // schemas
 const Item = require('./schemas/item');
+const User = require('./schemas/user');
 
 // routes
 const root = require('./routes/root-route');
 const itemRoute = require('./routes/item-route');
-app.use('/', root);
-app.use('/item', itemRoute);
-app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-// database
-mongoose.set('useNewUrlParser', true);
-mongoose.connect(config.connectionUrl);
+const userRoute = require('./routes/user-route');
 
 //outher configs
 app.use(bodyParser.json({
     limit: '2mb'
 }));
-
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+app.use('/', root);
+app.use('/item', itemRoute);
+app.use('/user', userRoute);
+app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// database
+mongoose.set('useNewUrlParser', true);
+mongoose.connect(config.connectionUrl);
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
