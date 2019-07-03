@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Collection Node Api Documentation",
-    "version": "1.0",
+    "version": "1.1",
     "title": "Collection Node Api Documentation",
     "termsOfService": "urn:tos",
     "contact": {},
@@ -11,7 +11,7 @@
       "url": "https://opensource.org/licenses"
     }
   },
-  "host": "localhost:3000",
+  "host": "node-mongo-project.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
@@ -21,7 +21,11 @@
     {
       "name": "user-controller",
       "description": "User Controller"
-    }
+    },
+    {
+      "name": "auth-controller",
+      "description": "User Controller"
+    }    
   ],
   "paths": {
     "/item/": {
@@ -34,6 +38,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -80,7 +96,17 @@
             "schema": {
               "$ref": "#/definitions/Item"
             }
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "201": {
@@ -125,7 +151,17 @@
             "schema": {
               "$ref": "#/definitions/Item"
             }
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "200": {
@@ -163,6 +199,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -196,6 +244,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -230,6 +290,16 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          },
           {
             "name": "title",
             "in": "query",
@@ -330,6 +400,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -363,6 +445,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -403,7 +497,17 @@
             "description": "id",
             "required": true,
             "type": "string"
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "200": {
@@ -437,6 +541,16 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          },          
           {
             "name": "id",
             "in": "path",
@@ -475,6 +589,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -508,6 +634,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -541,6 +679,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -574,6 +724,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -607,6 +769,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -640,6 +814,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -673,6 +859,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -706,6 +904,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -739,6 +949,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],          
         "responses": {
           "200": {
             "description": "OK",
@@ -772,6 +994,18 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],        
         "responses": {
           "200": {
             "description": "OK",
@@ -815,7 +1049,17 @@
             "schema": {
               "$ref": "#/definitions/User"
             }
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "201": {
@@ -840,53 +1084,6 @@
         "deprecated": false
       }      
     },
-    "/user/login": {
-      "post": {
-        "tags": [
-          "user-controller"
-        ],
-        "summary": "login",
-        "operationId": "loginUsingPOST",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "Login",
-            "description": "Login",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Login"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/LoginResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "deprecated": false
-      }
-    },
     "/user/password": {
       "put": {
         "tags": [
@@ -909,7 +1106,17 @@
             "schema": {
               "$ref": "#/definitions/Password"
             }
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "204": {
@@ -948,7 +1155,17 @@
             "description": "id",
             "required": true,
             "type": "string"
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "200": {
@@ -1000,7 +1217,17 @@
             "schema": {
               "$ref": "#/definitions/User"
             }
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "200": {
@@ -1040,7 +1267,17 @@
             "description": "id",
             "required": true,
             "type": "string"
-          }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }          
         ],
         "responses": {
           "204": {
@@ -1061,7 +1298,103 @@
         },
         "deprecated": false
       }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "login",
+        "operationId": "loginUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Login",
+            "description": "Login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LoginResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/refresh-login": {
+      "post": {
+        "tags": [
+          "auth-controller"
+        ],
+        "summary": "refresh-login",
+        "operationId": "refreshLogin",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "the JWT generated during the login process is required. Ex: abc123456.123ddgfdf.44331dfsf",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }            
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LoginResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
     }
+
   },
   "definitions": {
     "CountGames": {

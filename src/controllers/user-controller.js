@@ -101,9 +101,9 @@ exports.refreshLogin = async(req, res, next) => {
     try {
         const token = req.body.token || req.query.token || req.headers['x-access-token'];
         const data = await authService.decodeToken(token);
-
+        
         const user = await repository.findById(data.id);
-
+        
         if (!user) {
             res.status(404).send({
                 message: 'Cliente não encontrado'
@@ -117,7 +117,7 @@ exports.refreshLogin = async(req, res, next) => {
             name: user.name,
             roles: user.roles
         });
-
+        
         res.status(201).send({
             token: token,
             data: {

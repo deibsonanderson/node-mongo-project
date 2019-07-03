@@ -17,6 +17,7 @@ const User = require('./schemas/user');
 const root = require('./routes/root-route');
 const itemRoute = require('./routes/item-route');
 const userRoute = require('./routes/user-route');
+const authRoute = require('./routes/auth-route');
 
 //outher configs
 app.use(bodyParser.json({
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/', root);
+app.use('/auth', authRoute);
 app.use('/item', itemRoute);
 app.use('/user', userRoute);
 app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

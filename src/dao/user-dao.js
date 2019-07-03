@@ -10,7 +10,7 @@ exports.find = async() => {
 }
 
 exports.findById = async(id) => {
-    const res = await Customer.findById(id);
+    const res = await User.findById(id);
     return res;
 }
 
