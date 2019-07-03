@@ -15,17 +15,17 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "item-controller",
-      "description": "Item Controller"
-    },
+      "name": "auth-controller",
+      "description": "User Controller"
+    },    
     {
       "name": "user-controller",
       "description": "User Controller"
     },
     {
-      "name": "auth-controller",
-      "description": "User Controller"
-    }    
+      "name": "item-controller",
+      "description": "Item Controller"
+    }
   ],
   "paths": {
     "/item/": {
