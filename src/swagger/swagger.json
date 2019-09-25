@@ -189,13 +189,13 @@
         "deprecated": false
       }
     },
-    "/item/amount": {
+    "/item/amount-price": {
       "get": {
         "tags": [
           "item-controller"
         ],
-        "summary": "amount",
-        "operationId": "getTotalValorUsingGET",
+        "summary": "amountPrice",
+        "operationId": "amountPrice",
         "produces": [
           "application/json"
         ],
@@ -713,7 +713,7 @@
         },
         "deprecated": false
       }
-    },
+          },
     "/item/more/item-rated": {
       "get": {
         "tags": [

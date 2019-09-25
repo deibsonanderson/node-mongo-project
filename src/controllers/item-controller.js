@@ -53,3 +53,157 @@ exports.remove = async(req, res, next) => {
         });
     }
 };
+
+exports.findItemByMorePlays = async(req, res, next) => {
+    try {
+        var data = await repository.findItemByMorePlays();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+
+exports.amount = async(req, res, next) => {
+    try {
+        var data = await repository.amount();
+        console.log(data);
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findItemByCountGames = async(req, res, next) => {
+    try {
+        var data = await repository.findItemByCountGames();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findItemByProgressos = async(req, res, next) => {
+    try {
+        var data = await repository.findItemByProgressos();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findByFilter = async(req, res, next) => {
+    try {
+        var data = await repository.findByFilter();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findById = async(req, res, next) => {
+    try {
+        var data = await repository.findById(req.params.id);
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findByAdapterRated = async(req, res, next) => {
+    try {
+        var data = await repository.findByAdapterRated();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findItemByCompleted = async(req, res, next) => {
+    try {
+        var data = await repository.findItemByCompleted();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findItemByExpensive = async(req, res, next) => {
+    try {
+        var data = await repository.findItemByExpensive();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findByItemRated = async(req, res, next) => {
+    try {
+        var data = await repository.findByItemRated();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findByNewItem = async(req, res, next) => {
+    try {
+        var data = await repository.findByNewItem();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findItemByMoreTime = async(req, res, next) => {
+    try {
+        var data = await repository.findItemByMoreTime();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findByVideoGameRated = async(req, res, next) => {
+    try {
+        var data = await repository.findByVideoGameRated();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.findAmountPrice = async(req, res, next) => {
+    try {
+        var data = await repository.findAmountPrice();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+
+exports.findByPortableRated = async(req, res, next) => {
+    try {
+        var data = await repository.findByPortableRated();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}

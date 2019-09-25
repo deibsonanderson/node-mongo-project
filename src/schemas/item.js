@@ -88,7 +88,7 @@ const schema = new Schema({
         required: false,
         default: false
     },
-    flagProtetor: {
+    flagProtector: {
         type: Boolean,
         required: false,
         default: false
